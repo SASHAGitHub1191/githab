@@ -15,6 +15,7 @@ class Question:
 
 app = QApplication([])
 app.number_question = 0
+app.final_balls = 0
 window = QWidget()
 window.show()
 
@@ -60,7 +61,9 @@ def ask(q: Question):
 def check_answer():
     if answers[0].isChecked():
         result_label.setText('Верно!Ура!')
-
+        app.final_balls += 1
+    else:
+        result_label.setText('Неверно!не ура!')
 
 def next_question():
         app.number_question += 1
@@ -101,5 +104,5 @@ question_list = [Question('Сколько планет в солнечной с�
                  Question(' Какой  государственный язык в Бразилии ?',  'Португальский','Английскиий','Испанский','Бразильский')]
 
 ask(question_list[app.number_question])
-
+print(app.final_balls)
 app.exec()#исполнять
