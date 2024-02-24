@@ -44,7 +44,9 @@ def show_answer():
     answer_box.show()
     button_answer.setText('Следуйщий вопрос')
     check_answer()
-
+    if app.number_question == 3:
+        button_answer.setText('Фнал')
+        answer_box.setTitle(f'{app.final_balls} из 4')
 def show_question():
     question_box.show()
     answer_box.hide()
@@ -106,3 +108,4 @@ question_list = [Question('Сколько планет в солнечной с�
 ask(question_list[app.number_question])
 print(app.final_balls)
 app.exec()#исполнять
+
